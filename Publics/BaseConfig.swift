@@ -33,6 +33,8 @@ class BaseConfig {
     static let delpoydoc   = docServer + String(localized: "/#/deploy")
     static let privacyURL  = docServer + String(localized: "/#/policy")
     static let tutorialURL = docServer + String(localized: "/#/tutorial")
+    static let encryURL    = docServer + String(localized: "/#/encryption")
+    
     
     
     static let userAgreement   = "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"

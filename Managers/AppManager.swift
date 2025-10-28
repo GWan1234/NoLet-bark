@@ -350,7 +350,8 @@ extension AppManager{
         guard let path = BaseConfig.configPath else{ return nil }
         do{
             let data = try Data(contentsOf: path)
-            if let cryptData = CryptoManager(.data).encrypt(inputData: data){
+            
+            if let cryptData = CryptoManager(.data).encrypt(data: data){
                 
                 let pathTem = FileManager.default.temporaryDirectory.appendingPathComponent(
                     path.lastPathComponent,

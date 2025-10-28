@@ -1121,6 +1121,34 @@
         }
       }
     },
+    "KEY长度:" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Key Length:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キー長:"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "키 길이:"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "KEY长度:"
+          }
+        }
+      }
+    },
     "Markdown" : {
       "localizations" : {
         "en" : {
@@ -2072,6 +2100,9 @@
           }
         }
       }
+    },
+    "使用文档" : {
+
     },
     "使用方法" : {
       "localizations" : {
@@ -5153,6 +5184,9 @@
         }
       }
     },
+    "复制KEY" : {
+
+    },
     "复制Python示例" : {
       "localizations" : {
         "en" : {
@@ -6103,34 +6137,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "必选权限未选择"
-          }
-        }
-      }
-    },
-    "必须%d位" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Must be %d digits"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%d桁でなければなりません"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "필수 %d자리"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "必须%d位"
           }
         }
       }
@@ -8940,6 +8946,9 @@
           }
         }
       }
+    },
+    "查看文档" : {
+
     },
     "标记" : {
       "localizations" : {
@@ -13058,34 +13067,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "请求路径: /v1"
-          }
-        }
-      }
-    },
-    "请输入16位Iv" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please enter a 16-digit Iv"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "16桁のIvを入力してください"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "16자리 Iv를 입력하십시오"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请输入16位Iv"
           }
         }
       }
