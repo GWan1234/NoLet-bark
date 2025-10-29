@@ -11,6 +11,7 @@ import Defaults
 
 
 struct ServerMonitoringView: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject private var manager = AppManager.shared
     // 监控数据模型
     @State private var cpuUsage: CPUUsage = CPUUsage(pidPercentage: 0.0, osPercentage: 0)
@@ -25,33 +26,18 @@ struct ServerMonitoringView: View {
     // 历史最大连接数
     @State private var maxHistoricalConnections: Int = 1
 
-
-    @Default(.servers) var servers
-    @State private var pickerSelection:PushServerModel?
-
-
-    init(server: PushServerModel? = nil){
-        self._pickerSelection = State(wrappedValue: server)
-    }
+    var server: PushServerModel
+    
 
     let network = NetworkManager()
 
     @State private var timer: Timer? = nil
+    
+    @State private var errorCount = 0
 
     var body: some View {
         List{
-            Section{
-                Picker(selection: $pickerSelection, label: Text("切换服务器")) {
-                    ForEach(servers, id: \.id){server in
-                        Text(server.name)
-                            .tag(server)
-                    }
-                }
-                .pickerStyle(MenuPickerStyle())
-                .padding(.horizontal)
-            }
-            .listRowSeparator(.hidden)
-            .listRowBackground(Color.clear)
+          
             Section{
                     // CPU使用率卡片
                 CPUCard(
@@ -99,16 +85,19 @@ struct ServerMonitoringView: View {
             NLog.error("离开页面")
         }
         .navigationTitle("服务器监控")
-        .navigationBarTitleDisplayMode(.inline)
     }
     
     // 数据更新
     private func updateData() {
+        guard errorCount < 2 else {
+            self.timer?.invalidate()
+            self.timer = nil
+            dismiss()
+            return
+        }
+        
         Task {
-            guard let server = pickerSelection else{
-                Toast.error(title: "未选择服务器")
-                return
-            }
+          
             do {
                 let data: ServerData = try await network.fetch(
                     url: server.url,
@@ -145,6 +134,7 @@ struct ServerMonitoringView: View {
 
                 }
             } catch {
+                errorCount += 1
                 NLog.error(error.localizedDescription)
                 Toast.error(title: "服务器连接失败")
             }
@@ -482,5 +472,5 @@ fileprivate struct ConnectionsInfo {
 
 // 预览
 #Preview{
-    ServerMonitoringView()
+    ServerMonitoringView(server: PushServerModel(url:"https://example.com"))
 }
