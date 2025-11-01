@@ -202,7 +202,15 @@ final class CryptoManager {
 			return nil
 		}
 	}
-	
 
 }
 
+
+extension String{
+    var safeBase64: String{
+        self
+            .replacingOccurrences(of: "+", with: "-")
+            .replacingOccurrences(of: "/", with: "_")
+            .replacingOccurrences(of: "=", with: "")
+    }
+}
